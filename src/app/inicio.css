@@ -1,0 +1,128 @@
+@keyframes fadein-top-right {
+  0% {
+    opacity: 0;
+    transform: translate(100px, -100px) scale(0.8);
+  }
+  100% {
+    opacity: 0.6;
+    transform: translate(0, 0) scale(1);
+  }
+}
+
+@keyframes fadein-bottom-right {
+  0% {
+    opacity: 0;
+    transform: translate(100px, 100px) scale(0.8);
+  }
+  100% {
+    opacity: 0.6;
+    transform: translate(0, 0) scale(1);
+  }
+}
+
+@keyframes fadein-left {
+  0% {
+    opacity: 0;
+    transform: translateX(-100px) scale(0.8);
+  }
+  100% {
+    opacity: 0.6;
+    transform: translateX(0) scale(1);
+  }
+}
+
+@keyframes fadein-top-left {
+  0% {
+    opacity: 0;
+    transform: translate(-100px, -100px) scale(0.8);
+  }
+  100% {
+    opacity: 0.6;
+    transform: translate(0, 0) scale(1);
+  }
+}
+
+
+@keyframes text-fade-down {
+  0% {
+    opacity: 0;
+    transform: translateY(-40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.text-animate {
+  animation: text-fade-down 1.5s ease-out forwards;
+  opacity: 0;
+}
+
+/* En lugar de usar float-after + float-up-down separados, define clases combinadas */
+.float-after-up-down {
+  animation:
+    fadein-top-right 10s ease forwards,
+    float-up-down 10s ease-in-out 10s infinite;
+}
+
+.float-after-left-right {
+  animation:
+    fadein-left 10s ease forwards,
+    float-left-right 10s ease-in-out 10s infinite;
+}
+
+.float-after-diagonal-1 {
+  animation:
+    fadein-bottom-right 10s ease forwards,
+    float-diagonal-1 10s ease-in-out 10s infinite;
+}
+
+.float-after-diagonal-2 {
+  animation:
+    fadein-top-left 10s ease forwards,
+    float-diagonal-2 10s ease-in-out 10s infinite;
+}
+
+@keyframes float-up-down {
+  0%   { transform: translateY(0) rotate(0deg); }
+  50%  { transform: translateY(-10px) rotate(1deg); }
+  100% { transform: translateY(0) rotate(0deg); }
+}
+
+@keyframes float-left-right {
+  0%   { transform: translateX(0) rotate(0deg); }
+  50%  { transform: translateX(15px) rotate(-1deg); }
+  100% { transform: translateX(0) rotate(0deg); }
+}
+
+@keyframes float-diagonal-1 {
+  0%   { transform: translate(0, 0) rotate(0deg); }
+  50%  { transform: translate(-25px, 15px) rotate(1deg); }
+  100% { transform: translate(0, 0) rotate(0deg); }
+}
+
+@keyframes float-diagonal-2 {
+  0%   { transform: translate(0, 0) rotate(0deg); }
+  50%  { transform: translate(-15px, 5px) rotate(-1deg); }
+  100% { transform: translate(0, 0) rotate(0deg); }
+}
+
+@keyframes pulse-flash {
+  0% {
+    opacity: 0;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.4;
+    transform: scale(1.5);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1);
+  }
+}
+
+.group-hover\:animate-pulse-flash:hover {
+  animation: pulse-flash 0.6s ease-out;
+}

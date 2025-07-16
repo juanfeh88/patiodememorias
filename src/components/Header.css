@@ -1,0 +1,55 @@
+.header {
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.7); /* Fondo negro translúcido */
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Centrar horizontalmente el contenido */
+  padding: 1rem 2rem;
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+}
+
+.logo {
+  position: absolute;
+  left: 2rem;
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  height: 40px;
+}
+
+.menu {
+  display: flex;
+  gap: 2rem;
+}
+
+.menu-item {
+  color: white;
+  text-decoration: none;
+  font-size: 1.0rem;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.menu-item::after {
+  content: '';
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background-color: white;
+  transition: width 0.3s ease;
+}
+
+.menu-item:hover::after {
+  width: 100%;
+}
+
+.menu-item:hover {
+  color: #f3f3f3;
+}

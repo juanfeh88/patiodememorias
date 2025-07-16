@@ -1,103 +1,97 @@
-import Image from "next/image";
+'use client'
+
+import { useEffect, useState } from 'react'
+import Image from 'next/image'
+import { useRouter } from 'next/navigation'
+import { Cormorant_Garamond } from 'next/font/google'
+import './inicio.css'
+
+const cormorant = Cormorant_Garamond({ subsets: ['latin'], weight: '700' })
 
 export default function Home() {
-  return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+  const [animationKey, setAnimationKey] = useState(0)
+  const router = useRouter()
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+  useEffect(() => {
+    document.body.style.overflow = 'hidden'
+    return () => {
+      document.body.style.overflow = 'auto'
+    }
+  }, [])
+
+  // Reinicia las animaciones al entrar a la página
+  useEffect(() => {
+    setAnimationKey(prev => prev + 1)
+  }, [])
+
+  const collage = [
+    {
+      src: '/imagenes/c1.png',
+      className: 'absolute object-cover grayscale opacity-0 float-after-up-down',
+      style: { top: '10%', right: '5%', rotate: '-5deg' },
+    },
+    {
+      src: '/imagenes/c2.png',
+      className: 'absolute object-cover grayscale opacity-0 float-after-diagonal-1',
+      style: { top: '35%', right: '15%', rotate: '8deg' },
+    },
+    {
+      src: '/imagenes/c3.png',
+      className: 'absolute object-cover grayscale opacity-0 float-after-left-right',
+      style: { top: '60%', right: '8%', rotate: '-3deg' },
+    },
+    {
+      src: '/imagenes/c4.png',
+      className: 'absolute object-cover grayscale opacity-0 float-after-diagonal-2',
+      style: { top: '20%', right: '30%', rotate: '12deg' },
+    },
+  ]
+
+
+  return (
+    <div className="relative w-full h-screen overflow-hidden bg-black text-white">
+      {/* Fondo collage con key para reiniciar animaciones */}
+      <div key={animationKey} className="absolute inset-0 overflow-hidden z-0">
+        {collage.map((img, index) => (
           <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
+            key={index}
+            src={img.src}
+            alt={`collage-${index}`}
+            width={300}
+            height={300}
+            className={`absolute object-cover grayscale opacity-0 ${img.className}`}
+            style={{ ...img.style, position: 'absolute' }}
           />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+        ))}
+      </div>
+
+      {/* Texto izquierdo hasta el centro */}
+      <div className="relative z-10 h-full flex flex-col justify-center px-8 md:px-20 w-full max-w-4xl text-left text-animate">
+        <h1 className={`text-5xl md:text-7xl leading-tight whitespace-nowrap ${cormorant.className}`}>
+          Patio de Memorias
+        </h1>
+
+        <p className="mt-2 text-sm text-gray-300 max-w-4xl">
+          <span className="text-2xl font-bold block mb-4 whitespace-nowrap">
+            PATIO DE MEMORIAS: UN HOMENAJE A LA INFANCIA MARCADA POR LA GUERRA
+          </span>
+          Este espacio recoge los recuerdos de quienes vivieron el conflicto armado colombiano desde su niñez. A través de objetos personales que sobrevivieron al tiempo y al dolor, reconstruimos fragmentos de vida, dignidad y humanidad.
+          <br />
+          <br />
+          Patio de Memorias es un acto de memoria, reconciliación y escucha profunda. Un lugar donde las voces silenciadas florecen nuevamente.
+        </p>
+        <button
+          onClick={() => router.push('/patio')}
+          className="mt-6 bg-white text-black px-6 py-3 rounded-lg font-semibold transition duration-300 w-fit cursor-pointer relative overflow-hidden group"
         >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+          <span className="relative z-10">Iniciar el recorrido</span>
+          <span className="absolute inset-0 bg-white opacity-0 group-hover:opacity-100 group-hover:animate-pulse-flash"></span>
+        </button>
+
+
+      </div>
+
+
     </div>
-  );
+  )
 }
