@@ -68,11 +68,7 @@ const [hoveredSection, setHoveredSection] = useState(null);
             >
               <Link href="/">Inicio</Link>
               <span className="absolute left-0 bottom-0 w-0 h-0.5 bg-white transition-all group-hover:w-full"></span>
-              {hoveredSection === "inicio" && (
-                <div className="absolute left-1/2 transform -translate-x-1/2 top-10 w-72 bg-gray-800 text-white text-sm px-4 py-2 rounded-lg shadow-lg transition-opacity duration-300 opacity-100 text-justify">
-                  Un espacio íntimo para reencontrarnos con las historias silenciadas del conflicto.
-                </div>
-              )}
+
             </div>
 
             <div
@@ -82,11 +78,7 @@ const [hoveredSection, setHoveredSection] = useState(null);
             >
               <Link href="/patio">Patio de memorias</Link>
               <span className="absolute left-0 bottom-0 w-0 h-0.5 bg-white transition-all group-hover:w-full"></span>
-              {hoveredSection === "patio" && (
-                <div className="absolute left-1/2 transform -translate-x-1/2 top-10 w-72 bg-gray-800 text-white text-sm px-4 py-2 rounded-lg shadow-lg transition-opacity duration-300 opacity-100 text-justify">
-                  Descubre objetos de infancia que narran el paso por la guerra y el regreso a la vida.
-                </div>
-              )}
+
             </div>
 
             <div

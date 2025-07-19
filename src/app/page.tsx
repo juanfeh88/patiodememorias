@@ -33,7 +33,7 @@ export default function Home() {
     {
       src: '/imagenes/c2.png',
       className: 'absolute object-cover grayscale opacity-0 float-after-diagonal-1',
-      style: { top: '35%', right: '15%', rotate: '8deg' },
+      style: { top: '35%', right: '25%', rotate: '8deg' },
     },
     {
       src: '/imagenes/c3.png',
@@ -44,6 +44,11 @@ export default function Home() {
       src: '/imagenes/c4.png',
       className: 'absolute object-cover grayscale opacity-0 float-after-diagonal-2',
       style: { top: '20%', right: '30%', rotate: '12deg' },
+    },
+        {
+      src: '/imagenes/c5.png',
+      className: 'absolute object-cover grayscale opacity-0 float-after-diagonal-2',
+      style: { top: '50%', right: '40%', rotate: '12deg' },
     },
   ]
 
@@ -71,32 +76,34 @@ export default function Home() {
           Patio de Memorias
         </h1>
 
-        <p className="mt-2 text-sm text-gray-300 max-w-4xl">
-          <span className="text-2xl font-bold block mb-4 whitespace-nowrap">
-            PATIO DE MEMORIAS: UN HOMENAJE A LA INFANCIA MARCADA POR LA GUERRA
-          </span>
-          Este espacio recoge los recuerdos de quienes vivieron el conflicto armado colombiano desde su niñez. A través de objetos personales que sobrevivieron al tiempo y al dolor, reconstruimos fragmentos de vida, dignidad y humanidad.
-          <br />
-          <br />
-          Patio de Memorias es un acto de memoria, reconciliación y escucha profunda. Un lugar donde las voces silenciadas florecen nuevamente.
+        <p className="mt-2 text-sm text-gray-300 max-w-4xl text-justify leading-loose">
+          Patio de Memorias es un museo digital interactivo creado en la plataforma ArtSteps. En este espacio simbólico de memoria, infancia y resistencia, los visitantes pueden recorrer las cartas escritas por cuatro personas que fueron ingresaron a las FARC siendo menores de edad o habitaron espacios atravesados directamente por el contexto del conflicto armado colombiano.
+          <br /><br />
+          A través de un ejercicio de escritura creativa, cada participante evocó su infancia y le escribió una carta a un objeto o juguete significativo de esa etapa. Cada texto está acompañado por una voz en off, generando una experiencia íntima, sensorial y profundamente humana.
+          <br /><br />
+          Este museo parte de una verdad compartida: todos fuimos niños y niñas alguna vez, y muchos aún conservamos un objeto que nos conecta con esos años. Sin embargo, para quienes vivieron el conflicto siendo menores, ese derecho fue interrumpido o arrebatado, junto con la posibilidad de recordar sin dolor.
+          <br /><br />
+          Esta es una propuesta comunicativa que busca activar la memoria desde lo humano y la ternura resistida, prevenir el reclutamiento forzado desde la empatía y resignificar las infancias interrumpidas con dignidad, cuidado y escucha.
         </p>
+
         <div className="mt-6 flex items-center gap-6">
           <button
             onClick={() => router.push('/patio')}
-            className="bg-white text-black px-6 py-3 rounded-lg font-semibold transition duration-300 w-fit cursor-pointer relative overflow-hidden group"
+            className="bg-white text-black px-6 py-3 rounded-lg font-semibold transition duration-300 w-fit cursor-pointer relative overflow-hidden group "
           >
-            <span className="relative z-10">Iniciar el recorrido</span>
-            <span className="absolute inset-0 bg-white opacity-0 group-hover:opacity-100 group-hover:animate-pulse-flash"></span>
+            <span className="relative z-10 ">Iniciar el recorrido</span>
+            <span className="absolute inset-0 bg-white opacity-0 group-hover:opacity-100 group-hover:animate-pulse-flash "></span>
           </button>
 
           {/* Imagen QR al lado derecho */}
           <Image
-            src="/imagenes/qr.png" // Asegúrate de que esta imagen exista en tu carpeta public/imagenes
+            src="/imagenes/qr2.png"
             alt="Código QR"
             width={180}
             height={180}
-            className="rounded-lg shadow-md hover:scale-105 transition-transform duration-300"
+            className="rounded-lg border-4 border-white shadow-md hover:scale-105 transition-transform duration-300"
           />
+
         </div>
 
 

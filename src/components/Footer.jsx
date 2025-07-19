@@ -8,7 +8,7 @@ export default function Footer() {
       <div className="max-w-6xl mx-auto">
 
         {/* Línea divisoria */}
-        <div className="border-t border-gray-700 mt-10 pt-6 text-xs sm:text-sm text-gray-400">
+        <div className="border-t border-gray-700 mt-10 pt-6 text-xs sm:text-sm text-gray-200">
           <p>© 2025 Patio de Memorias — Un espacio para escuchar, sanar y recordar.</p>
         </div>
       </div>
