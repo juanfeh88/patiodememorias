@@ -111,7 +111,7 @@ const [hoveredSection, setHoveredSection] = useState(null);
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 w-full h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white z-40 flex flex-col justify-evenly items-center text-2xl font-semibold lg:hidden overflow-hidden"
+            className="fixed inset-0 w-full h-screen bg-black text-white z-40 flex flex-col justify-evenly items-center text-2xl font-semibold lg:hidden overflow-hidden"
           >
             <button className="absolute top-6 right-6 text-white" onClick={() => setMenuOpen(false)}>
               <X size={40} />

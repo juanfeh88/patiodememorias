@@ -30,18 +30,28 @@ export default function PatioVirtual() {
           Explora nuestro espacio interactivo en 3D, donde los objetos y memorias toman forma viva.
         </p>
 
-        <div
-          className="w-full max-w-5xl aspect-video"
-          data-aos="fade-up"
-          data-aos-delay="400"
-        >
-          <iframe
-            className="w-full h-full rounded-xl shadow-lg"
-            src="https://www.artsteps.com/embed/6875bb8ce502dbb47b82fe03/560/315"
-            frameBorder="0"
-            allowFullScreen
-          />
-        </div>
+<div
+  className="w-full max-w-5xl data-[aos]:fade-up data-[aos-delay]:[400]"
+>
+  <div className="block md:hidden w-full h-[500px]">
+    <iframe
+      className="w-full h-full rounded-xl shadow-lg"
+      src="https://www.artsteps.com/embed/6875bb8ce502dbb47b82fe03/560/315"
+      frameBorder="0"
+      allowFullScreen
+    />
+  </div>
+
+  <div className="hidden md:block w-full aspect-video">
+    <iframe
+      className="w-full h-full rounded-xl shadow-lg"
+      src="https://www.artsteps.com/embed/6875bb8ce502dbb47b82fe03/560/315"
+      frameBorder="0"
+      allowFullScreen
+    />
+  </div>
+</div>
+
       </main>
 
       <Footer />

@@ -13,11 +13,14 @@ export default function Home() {
   const router = useRouter()
 
   useEffect(() => {
-    document.body.style.overflow = 'hidden'
-    return () => {
-      document.body.style.overflow = 'auto'
+    if (window.innerWidth >= 768) {
+      document.body.style.overflow = 'hidden'
+      return () => {
+        document.body.style.overflow = 'auto'
+      }
     }
   }, [])
+
 
   // Reinicia las animaciones al entrar a la página
   useEffect(() => {
@@ -45,7 +48,7 @@ export default function Home() {
       className: 'absolute object-cover grayscale opacity-0 float-after-diagonal-2',
       style: { top: '20%', right: '30%', rotate: '12deg' },
     },
-        {
+    {
       src: '/imagenes/c5.png',
       className: 'absolute object-cover grayscale opacity-0 float-after-diagonal-2',
       style: { top: '50%', right: '40%', rotate: '12deg' },
@@ -54,7 +57,7 @@ export default function Home() {
 
 
   return (
-    <div className="relative w-full h-screen overflow-hidden bg-black text-white">
+    <div className="relative w-full min-h-screen overflow-y-auto md:overflow-hidden bg-black text-white">
       {/* Fondo collage con key para reiniciar animaciones */}
       <div key={animationKey} className="absolute inset-0 overflow-hidden z-0">
         {collage.map((img, index) => (
@@ -71,7 +74,7 @@ export default function Home() {
       </div>
 
       {/* Texto izquierdo hasta el centro */}
-      <div className="relative z-10 h-full flex flex-col justify-center px-8 md:px-20 w-full max-w-4xl text-left text-animate">
+<div className="relative z-10 flex flex-col justify-center items-start px-8 md:px-25 w-full max-w-4xl text-left text-animate min-h-screen">
         <h1 className={`text-5xl md:text-7xl leading-tight whitespace-nowrap ${cormorant.className}`}>
           Patio de Memorias
         </h1>
@@ -101,8 +104,9 @@ export default function Home() {
             alt="Código QR"
             width={180}
             height={180}
-            className="rounded-lg border-4 border-white shadow-md hover:scale-105 transition-transform duration-300"
+            className="hidden md:block rounded-lg border-4 border-white shadow-md hover:scale-105 transition-transform duration-300"
           />
+
 
         </div>
 
