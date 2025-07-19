@@ -80,13 +80,25 @@ export default function Home() {
           <br />
           Patio de Memorias es un acto de memoria, reconciliación y escucha profunda. Un lugar donde las voces silenciadas florecen nuevamente.
         </p>
-        <button
-          onClick={() => router.push('/patio')}
-          className="mt-6 bg-white text-black px-6 py-3 rounded-lg font-semibold transition duration-300 w-fit cursor-pointer relative overflow-hidden group"
-        >
-          <span className="relative z-10">Iniciar el recorrido</span>
-          <span className="absolute inset-0 bg-white opacity-0 group-hover:opacity-100 group-hover:animate-pulse-flash"></span>
-        </button>
+        <div className="mt-6 flex items-center gap-6">
+          <button
+            onClick={() => router.push('/patio')}
+            className="bg-white text-black px-6 py-3 rounded-lg font-semibold transition duration-300 w-fit cursor-pointer relative overflow-hidden group"
+          >
+            <span className="relative z-10">Iniciar el recorrido</span>
+            <span className="absolute inset-0 bg-white opacity-0 group-hover:opacity-100 group-hover:animate-pulse-flash"></span>
+          </button>
+
+          {/* Imagen QR al lado derecho */}
+          <Image
+            src="/imagenes/qr.png" // Asegúrate de que esta imagen exista en tu carpeta public/imagenes
+            alt="Código QR"
+            width={180}
+            height={180}
+            className="rounded-lg shadow-md hover:scale-105 transition-transform duration-300"
+          />
+        </div>
+
 
 
       </div>
