@@ -5,22 +5,13 @@ import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 import { Cormorant_Garamond } from 'next/font/google'
 import './inicio.css'
+import Footer from "@/components/Footer";
 
 const cormorant = Cormorant_Garamond({ subsets: ['latin'], weight: '700' })
 
 export default function Home() {
   const [animationKey, setAnimationKey] = useState(0)
   const router = useRouter()
-
-  useEffect(() => {
-    if (window.innerWidth >= 768) {
-      document.body.style.overflow = 'hidden'
-      return () => {
-        document.body.style.overflow = 'auto'
-      }
-    }
-  }, [])
-
 
   // Reinicia las animaciones al entrar a la página
   useEffect(() => {
@@ -114,6 +105,7 @@ export default function Home() {
 
       </div>
 
+      <Footer />
 
     </div>
   )
