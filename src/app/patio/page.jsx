@@ -37,7 +37,7 @@ export default function PatioVirtual() {
         >
           <iframe
             className="w-full h-full rounded-xl shadow-lg"
-            src="https://www.artsteps.com/embed/654fb2a1c1189beaf73587f7/560/315"
+            src="https://www.artsteps.com/embed/6875bb8ce502dbb47b82fe03/560/315"
             frameBorder="0"
             allowFullScreen
           />
