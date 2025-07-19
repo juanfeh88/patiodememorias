@@ -65,7 +65,7 @@ export default function Home() {
       </div>
 
       {/* Texto izquierdo hasta el centro */}
-<div className="relative z-10 flex flex-col justify-center items-start px-8 md:px-20 pt-24 md:pt-2 w-full max-w-4xl text-left text-animate min-h-screen">
+<div className="relative z-10 flex flex-col justify-center items-center md:items-start px-6 md:px-20 pt-24 md:pt-2 w-full max-w-4xl text-center md:text-left text-animate min-h-screen">
         <h1 className={`text-5xl md:text-7xl leading-tight whitespace-nowrap ${cormorant.className}`}>
           Patio de Memorias
         </h1>
